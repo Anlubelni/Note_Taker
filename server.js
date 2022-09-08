@@ -18,6 +18,7 @@ app.get('/api/notes', (res) => {
 
 // Gets the notes.html page
 app.get('/notes', (res) => {
+  console.log(path.join(__dirname, '/public/notes.html'));
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
