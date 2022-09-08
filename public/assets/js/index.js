@@ -32,8 +32,8 @@ const renderCurrentNote = () => {
 };
 
 // Obtain saved notes and render them in a list
-const renderNoteList = async () => {
-  let savedNotes = await getSavedNotes().json();
+const renderNoteList = async (savedNotes) => {
+  let savedNotes = await savedNotes.json();
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
   }
@@ -69,6 +69,8 @@ const createListItem = (text) => {
 
   return listItem;
 };
+
+const loadNotes = () => getSavedNotes().then(renderNoteList);
 
 // Gets saved notes from API
 const getSavedNotes = () =>
@@ -141,4 +143,4 @@ if (window.location.pathname === "/notes") {
   noteTextArea.addEventListener("keyup", displaySaveButton);
 }
 
-renderNoteList();
+loadNotes();
