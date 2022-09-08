@@ -32,8 +32,8 @@ const renderCurrentNote = () => {
 };
 
 // Obtain saved notes and render them in a list
-const renderNoteList = async (savedNotes) => {
-  let savedNotes = await savedNotes.json();
+const renderNoteList = async (notes) => {
+  let savedNotes = await notes.json();
   if (window.location.pathname === "/notes") {
     noteList.forEach((el) => (el.innerHTML = ""));
   }
