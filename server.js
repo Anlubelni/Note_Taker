@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Gets currentNotes stored in db.json
-app.get('/api/notes', (res) => {
+app.get('/api/notes', (req, res) => {
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) throw err;
     res.json(JSON.parse(data));
@@ -17,7 +17,7 @@ app.get('/api/notes', (res) => {
 });
 
 // Gets the notes.html page
-app.get('/notes', (res) => {
+app.get('/notes', (req, res) => {
   console.log(path.join(__dirname, '/public/notes.html'));
   res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
