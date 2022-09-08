@@ -98,7 +98,7 @@ const saveNoteClick = () => {
     text: noteTextArea.value,
   };
   saveNote(newNote).then(() => {
-    renderNoteList();
+    getSavedNotes(newNote);
     renderCurrentNote();
   });
 };
